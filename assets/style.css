@@ -1,0 +1,52 @@
+*, * ::before, *::after {
+ box-sizing: border-box;
+}
+
+.container {
+ width: 90%;
+ max-width: 400px;
+ background-color: turquoise;
+ margin : 0 auto;
+ height: 600px;
+ position :relative;
+ display: flex;
+ justify-content: center;
+}
+.daily {
+ border: 1px solid gray;
+ padding: 0.5em;
+ background-color: skyblue;
+ border-radius: 8px;
+ color: black;
+ -webkit-border-radius:8px;
+ -moz-border-radius:8px;
+ -ms-border-radius:8px;
+ -o-border-radius:8px;
+}
+
+.uv-index {
+ padding: 0.5em;
+ border-radius: 8px;
+ display: inline-block;
+}
+
+.uv.good {
+ background-color: green;
+ color: white;
+}
+
+.uv.normal {
+ background-color: yellow;
+ color: white;
+}
+
+.uv.bad {
+ background-color: red;
+ color: white;
+}
+
+.border {
+ border: 1px solid gray;
+ border-radius: 8px;
+ padding: 0.5em;
+}
