@@ -67,7 +67,20 @@ document.getElementById("search-btn").addEventListener("click", event => {
      icon: weather.list[39].weather[0].icon
     }
     console.log(res.data);
+
+    let uvClass
+    if (uvi < 2 ){
     
+      uvClass = "uvGood"
+
+
+    }else if(uvi <=5 ){
+      uvClass = "uvNormal"
+
+    }else {
+       uvClass = "uvBad"
+    }
+
     const currentElm= document.createElement('div')
     currentElm.innerHTML = `
         <div class= "currentday">
@@ -76,7 +89,7 @@ document.getElementById("search-btn").addEventListener("click", event => {
             <h3>Temperature: ${current.temp}</h3>
             <h3>Humidity: ${current.humid}</h3>
             <h3>Winds: ${current.winds}</h3>
-            <h3>UVI: ${uvi}</h3>
+            <h3 class = "${uvClass}">UVI: ${uvi}</h3>
           </div>
     `
 
