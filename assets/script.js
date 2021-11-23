@@ -1,29 +1,32 @@
 const APIkey ="ae38efa85aa51a29d76f31334b912676"
 
 
-function getWeather(cityName){
-const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&${APIkey}`
-axios.get(url)  
+document.getElementById("search-btn").addEventListener("click", event => {
+  event.preventDefault()
+  const cityName = document.getElementById("location").value
+
+  axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=ae38efa85aa51a29d76f31334b912676`)
  .then(res => {
-
-  console.log(res.data) 
+   
   const weather = res.data
-  const latitude = weather.city.coord.lat
-  const longtitude = weather.city.coord.lon
-  
- axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=imperial&appid=${APIkey}`)
-   .then(res => {
+  console.log(res.data)
+   let latitude = weather.city.coord.lat
+   let longitude = weather.city.coord.lon
 
-    const uvi =res.data.current.uvi
+   axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=ae38efa85aa51a29d76f31334b912676`)
+   .then(resp => {
+    
+    let today = resp.data
+    const uvi = resp.data.current.uvi
     const city = weather.city.name
-    const date = weather.list[0].dt_txt
+    
     let current = {
      date: weather.list[0].dt_txt,
      temp: weather.list[0].main.temp,
      humid: weather.list[0].main.humidity,
      windS: weather.list[0].wind.speed,
      icon: weather.list[0].weather[0].icon,
-     uvi = uvi
+     uvi : uvi
     }
     let day1 = {
      date: weather.list[8].dt_txt,
@@ -65,25 +68,40 @@ axios.get(url)
     
     const currentElm= document.createElement('div')
     currentElm.innerHTML = `
-    
-    
-    
-    
+        <div class= "currentday">
+            <h1>Current</h1>
+            <h3>City: ${city} <img src="http://openweathermap.org/img/w/${current.icon}.png" alt="icon"></h3>
+            <h3>Temperature: ${current.temp}</h3>
+            <h3>Humidity: ${current.humid}</h3>
+            <h3>Wind: ${current.wind}</h3>
+            <h3>UVI: ${uvi}</h3>
+          </div>
     `
 
-    documet.getElementById().append(currentElm)
+    documet.getElementById('today').append(currentElm)
 
+
+    let forecasts = [day1, day2, day3, day4, day5]
+
+    document.getElementById('forecast').innerHTML = ''
+    forecasts.forEach(day => {
+      const forecastElem = document.createElement('div')
+      forecastElem.className = 'col-md-3 mb-3'
+      forecastElem.innerHTML = `
+            <div class="card" style="width: 10rem;">
+            <img src="http://openweathermap.org/img/w/${day.icon}.png" class="card-img-top" alt="icon">
+            <div class="card-body">
+            <h5 class="card-title">${day.date}</h5>
+            <p class="card-text">            
+            <h3>temp: ${day.temp}</h3>
+            <h3>humid: ${day.humid}<h3>
+            <h3>wind: ${day.wind}</h3></p>
+            </div>
+            </div>
+            </div>
+        `
+       document.getElementById('future').append(forecastElem)
+     })
  })
-}
- document.getElementById("search-btn").addEventListener("click", event => 
- {
- event.preventDefault()
- const cityName = document.getElementById("location").value
- getWeather(cityName)
-
- })
-
-
-
-
-
+})
+})
