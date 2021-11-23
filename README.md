@@ -31,7 +31,7 @@ THEN I am presented with the last searched city forecast
 
 The following image demonstrates the application functionality:
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+![weather dashboard demo](./assets/image/5-days forecast.jpg)
 
 ## Review
 
@@ -44,5 +44,3 @@ You are required to submit the following for review:
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
 
-
-image description (./assets/image/C:\Users\chanw\Desktop\code\WeatherHomwork\assets\image\5-days forecast.jpg)
