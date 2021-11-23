@@ -29,9 +29,9 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
-The following image demonstrates the application functionality:
+Img Description:
 
-![weather dashboard demo](./assets/image/5-days forecast.jpg)
+[image](https://user-images.githubusercontent.com/88735341/142990577-2154edd6-4334-4640-89ff-c2c6775148a6.png)
 
 ## Review
 
