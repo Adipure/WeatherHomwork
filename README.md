@@ -30,8 +30,10 @@ THEN I am presented with the last searched city forecast
 ```
 
 Img Description:
-
+5days forecasts
 [image](https://user-images.githubusercontent.com/88735341/142990577-2154edd6-4334-4640-89ff-c2c6775148a6.png)
+current weather + UVI color changes
+[image](https://user-images.githubusercontent.com/88735341/142990745-5a5eec00-83ab-471e-ad29-17e240a70368.png)
 
 ## Review
 
